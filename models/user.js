@@ -9,8 +9,7 @@ var userSchema = new mongoose.Schema({
     },
     firstName: String,
     lastName: String,
-    password: String,
-    friends: [{type: mongoose.Schema.ObjectId, ref: "User"}]
+    password: String
 });
 
 userSchema.plugin(passportLocalMongoose,{usernameField: "email"});
