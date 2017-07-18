@@ -3,9 +3,11 @@ var express         = require("express"),
     mongoose        = require("mongoose"),
     flash              = require("connect-flash"),
     passport        = require("passport"),
-    localStrategy   = require("passport-local"),
     indexRoutes     = require("./routes/index"),
+    usersRoutes     = require("./routes/users"),
     User            = require("./models/user"),
+    friends         = require("mongoose-friends"),
+    methodOverride  = require("method-override"),
     app             = express();
 mongoose.connect("mongodb://localhost/social");    
 app.set("view engine", "ejs");    
@@ -30,7 +32,9 @@ app.use(function(req,res,next){
     res.locals.success = req.flash("success");
     next();
 });
+app.use(methodOverride("_method"));
 app.use("/",indexRoutes);
+app.use(usersRoutes);
 
 app.listen(process.env.PORT, function(){
     console.log("serving!!");

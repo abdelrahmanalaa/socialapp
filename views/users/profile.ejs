@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+<div class="well">
+    Name: <%= user.firstName + " " + user.lastName %>
+    <br>
+    Email: <%= user.email %>
+    <% if(currentUser && !(user._id.equals(currentUser._id)) && !(status === "requested" || status === "pending" || status === "accepted")) { %>
+        <form action="/addfriend/<%= user._id %>" method="GET">
+            <button class="btn btn-success btn-md">Add as friend</button>
+        </form>
+    <% } %>
+    
+    <% if(user._id.equals(currentUser._id)) { %>
+        <a href="/edit" class="btn btn-warning">Edit</a>    
+    <% } %>
+    
+    
+     
+</div>
+<% include ../partials/footer %>

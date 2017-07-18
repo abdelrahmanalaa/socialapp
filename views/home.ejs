@@ -1,4 +1,14 @@
 <% include ./partials/header %>
-
+<% if(!currentUser) { %>
+    <div class="jumbotron">
+      <h2><i class="fa fa-envelope-open" aria-hidden="true"></i> Connect</h2>
+      <p>This is simple social app to connect you with your <strong>friends</strong>, please login to connect to your friends.</p>
+      <p>
+        <a class="btn btn-lg btn-success" href="/login"><i class="ion-log-in"></i> Log in</a>
+      </p>
+    </div>
+<% } else { %>
+        
+<% } %>
 
 <% include ./partials/footer %>

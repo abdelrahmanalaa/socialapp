@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+<form class="form-horizontal" action="/edit/<%= currentUser._id%>?_method=PUT" method="POST">
+  <fieldset>
+    <legend>Edit your profile <br>
+    <small>( leave what you don't want to update blanc ! )</small>
+    </legend>
+    <div class="form-group">
+      <label  class="col-lg-2 control-label">First Name:</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" name="user[firstName]" placeholder="First Name" value="<%= currentUser.firstName %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Last Name:</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" name="user[lastName]" placeholder="Last Name" value="<%= currentUser.lastName %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label  class="col-lg-2 control-label">Email:</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" name="user[email]" placeholder="Email" value="<%= currentUser.email %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Password:</label>
+      <div class="col-lg-4">
+        <input type="password" class="form-control" name="password" placeholder="Password ">
+      </div>
+    <div class="form-group" style="padding-top: 4%;">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<% include ../partials/footer %>    
