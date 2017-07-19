@@ -14,10 +14,10 @@ module.exports = {
                     console.error(err);
                 }
                 else {
-                    if(user._id === req.params.id){
+                    if(user._id.equals(req.params.id)){
                         next();
                     } else{
-                        req.flash("DAMN ON YOU Bitch!");
+                        req.flash("error","DAMN ON YOU Bitch!");
                         res.redirect("/");
                     }
                 }
